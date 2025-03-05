@@ -1,2 +1,10 @@
-# Python-Study-Repository
-Python Study File
+# Python
+
+### 크롤러
+
+- Naver
+- Instargram
+- bit
+
+### AI
+
