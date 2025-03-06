@@ -51,11 +51,30 @@ from bs4 import BeautifulSoup
 # 동일업종 등락률
 # chart_image = resultLG.select('#img_chart_area')[0]
 
+# 종목 코드
+dataList = ['005930', '066575', '005380', '035720', '034220', '003490']
+# 리턴 기록 넣어두는 곳
+resultData = []
+
 def crawle(StockNumber) :
     # f = 포멧팅
     data = requests.get(f'https://finance.naver.com/item/sise.naver?code={StockNumber}')
     result = BeautifulSoup(data.content, 'html.parser')
-    print(result.find_all('strong', id="_nowVal")[0].text)
-    print(result.find_all('span', id="_quant")[0].text)
+    result.find_all('strong', id="_nowVal")[0].text
+    result.find_all('span', id="_quant")[0].text
 
-crawle('005930')
+    # return result.find_all('strong', id="_nowVal")[0].text
+    return result.find_all('strong', id="_nowVal")[0].text
+
+    # dataList.append()
+    # resultData.append(result.find_all('strong', id="_nowVal")[0].text)
+
+resultData = crawle('005930')
+
+f = open('CrawlerResult.txt', 'w')
+
+print(resultData)
+
+for i in range(0, 2):
+    f.write(resultData[i])
+f.close()
