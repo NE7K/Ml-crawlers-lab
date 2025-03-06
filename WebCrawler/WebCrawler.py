@@ -53,10 +53,12 @@ from bs4 import BeautifulSoup
 
 # 종목 코드
 dataList = ['005930', '066575', '005380', '035720', '034220', '003490']
+
 # 리턴 기록 넣어두는 곳
 resultData = []
 
-def crawle(StockNumber) :
+# 함수를 만들어줘야지 ㅋㅋ
+def crawle(StockNumber):
     # f = 포멧팅
     data = requests.get(f'https://finance.naver.com/item/sise.naver?code={StockNumber}')
     result = BeautifulSoup(data.content, 'html.parser')
@@ -69,12 +71,18 @@ def crawle(StockNumber) :
     # dataList.append()
     # resultData.append(result.find_all('strong', id="_nowVal")[0].text)
 
-resultData = crawle('005930')
+# 함수 실행 / resultData[i]에 길이만큼 함수 실행하고 저장
+for i in range(dataList):
+    resultData[i] = crawle(dataList[i])
+    
 
+# 실행 함수들 자료 저장 및 파일화
 f = open('CrawlerResult.txt', 'w')
 
-print(resultData)
-
-for i in range(0, 2):
+# 모든 종목 코드를 그 안에다 출력
+for i in range(resultData):
     f.write(resultData[i])
+    
+# for i in range(0, 2):
+#     f.write(resultData[i])
 f.close()
