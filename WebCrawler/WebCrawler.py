@@ -54,7 +54,7 @@ from bs4 import BeautifulSoup
 def crawle(StockNumber) :
     # f = 포멧팅
     data = requests.get(f'https://finance.naver.com/item/sise.naver?code={StockNumber}')
-    result = BeautifulSoup(data.context, 'html.parser')
+    result = BeautifulSoup(data.content, 'html.parser')
     print(result.find_all('strong', id="_nowVal")[0].text)
     print(result.find_all('span', id="_quant")[0].text)
 
