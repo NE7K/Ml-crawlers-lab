@@ -17,3 +17,11 @@ def parse(StockNumber):
 for i in range(6):
     print(parse(dataList[i]))
     
+# 파일 작성 모드로 오픈 
+f = open('CrawlerResult.txt', 'w')
+
+# 6번 함수 실행 및 저장
+for i in dataList:
+    f.write(parse(i) + '\n')
+
+f.close()
