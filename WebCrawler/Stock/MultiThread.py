@@ -4,9 +4,8 @@ import time
 
 from multiprocessing.dummy import Pool as ThreadPool
 
-
 url = [
-  # coin one url
+  # coin one url = ETH url
   'https://tb.coinone.co.kr/api/v1/chart/olhc/?site=coinoneeth&type=1h&last_time=1609524000000',
   'https://tb.coinone.co.kr/api/v1/chart/olhc/?site=coinoneeth&type=1h&last_time=1608811200000',
   'https://tb.coinone.co.kr/api/v1/chart/olhc/?site=coinoneeth&type=1h&last_time=1608098400000',
@@ -21,10 +20,20 @@ url = [
 
 def getData(urlData):
   data = requests.get(urlData)
-  getDict = json.loads(data.content)
-  return getDict['body']['candles'][0]['close']
+  change = json.loads(data.content)
+  return change['data'][0]['Close']
+
+# getData(url[0])
+
+print(getData(url[0]))
+
+# result 타입 지정
+result = []
 
 pool = ThreadPool(4)
-pool.map()
+# pool.map(작업시킬함수, 작업시킬리스트)
+result = pool.map(getData, url)
 pool.close()
 pool.join()
+
+print(result)
