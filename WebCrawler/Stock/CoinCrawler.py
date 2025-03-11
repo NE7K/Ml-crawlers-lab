@@ -15,3 +15,4 @@ for i in range(200):
     resultTime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(getTime/1000))
     print(resultTime)
     print(dict['body']['candles'][i]['close'])
+    
