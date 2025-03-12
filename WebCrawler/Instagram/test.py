@@ -10,8 +10,8 @@ driver = webdriver.Chrome()
 driver.get('https://www.instagram.com')
 
 # 코드 정지
-time.sleep(2)
-e = driver.find_element(By.CSS_SELECTOR, '.x1lliihq')
+time.sleep(5)
+e = driver.find_element(By.CSS_SELECTOR, '.x1lliihq span').text
 print(e)
 
 # 종료 방지
