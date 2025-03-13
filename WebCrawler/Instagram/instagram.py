@@ -1,4 +1,9 @@
+# ㅇㄴ 쿠키 관리 안하면 접속 차단 당해
+
 from selenium import webdriver
+
+# img import
+import urllib.request
 
 # Keys = enter, ecs를 입력하고 싶을 때
 from selenium.webdriver.common.keys import Keys
@@ -19,7 +24,7 @@ driver = webdriver.Chrome()
 driver.get('https://www.instagram.com')
 
 # 코드 정지
-time.sleep(2)
+time.sleep(5)
 
 id = driver.find_elements(By.CSS_SELECTOR, 'input[name="username"]')
 id[0].send_keys(os.getenv('id'))
@@ -35,7 +40,7 @@ pressClick = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').send_
 
 # page move / game tag search
 # instagram.com/explore/tags/검색단어/ 이게 과거 주소인듯
-time.sleep(4)
+time.sleep(5)
 driver.get('https://www.instagram.com/explore/search/keyword/?q=%EA%B2%8C%EC%9E%84')
 
 # 요소가 나올 때까지 기다려
@@ -44,9 +49,14 @@ e = driver.find_element(By.CSS_SELECTOR, '._aagu')
 # script 이용해서 강제로 클릭
 driver.execute_script('arguments[0].click();', e)
 
+time.sleep(1)
+# img class x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3
+img = driver.find_elements(By.CSS_SELECTOR, '._aagv img')[1].get_attribute('src')
+# save img
+urllib.request.urlretrieve(img, '1.jpg')
 
 # 종료 방지
 # input('enter')
 
-time.sleep(20)
+time.sleep(10)
 # driver.close()
