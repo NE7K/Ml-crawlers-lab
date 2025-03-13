@@ -11,6 +11,8 @@ import time
 from dotenv import load_dotenv
 import os
 
+# .env file load
+load_dotenv()
 
 # 처음 세팅 시에는 비워두기
 driver = webdriver.Chrome()
@@ -20,10 +22,10 @@ driver.get('https://www.instagram.com')
 time.sleep(5)
 
 id = driver.find_elements(By.CSS_SELECTOR, 'input[name="username"]')
-id[0].send_keys('')
+id[0].send_keys(os.getenv('id'))
 
 passwd = driver.find_element(By.CSS_SELECTOR, 'input[name="password"]')
-passwd.send_keys('')
+passwd.send_keys(os.getenv('pw'))
 
 # pressClick = driver.find_element(By.CSS_SELECTOR, '._acan button').text
 # print(pressClick)
