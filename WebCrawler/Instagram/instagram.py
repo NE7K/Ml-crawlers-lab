@@ -19,7 +19,7 @@ driver = webdriver.Chrome()
 driver.get('https://www.instagram.com')
 
 # 코드 정지
-time.sleep(3)
+time.sleep(2)
 
 id = driver.find_elements(By.CSS_SELECTOR, 'input[name="username"]')
 id[0].send_keys(os.getenv('id'))
@@ -35,10 +35,18 @@ pressClick = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').send_
 
 # page move / game tag search
 # instagram.com/explore/tags/검색단어/ 이게 과거 주소인듯
+time.sleep(4)
 driver.get('https://www.instagram.com/explore/search/keyword/?q=%EA%B2%8C%EC%9E%84')
+
+# 요소가 나올 때까지 기다려
+driver.implicitly_wait(10)
+e = driver.find_element(By.CSS_SELECTOR, '._aagu')
+# script 이용해서 강제로 클릭
+driver.execute_script('arguments[0].click();', e)
+
 
 # 종료 방지
 # input('enter')
 
-time.sleep(1000000000)
+time.sleep(20)
 # driver.close()
