@@ -41,7 +41,7 @@ pressClick = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').send_
 # page move / game tag search
 # instagram.com/explore/tags/검색단어/ 이게 과거 주소인듯
 time.sleep(5)
-driver.get('https://www.instagram.com/explore/search/keyword/?q=%EA%B2%8C%EC%9E%84')
+driver.get('https://www.instagram.com/explore/search/keyword/?q=%EC%97%B0%EC%95%A0')
 
 # 요소가 나올 때까지 기다려
 driver.implicitly_wait(10)
@@ -49,26 +49,17 @@ e = driver.find_element(By.CSS_SELECTOR, '._aagu')
 # script 이용해서 강제로 클릭
 driver.execute_script('arguments[0].click();', e)
 
-time.sleep(1)
-# img class x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3
-img = driver.find_element(By.CSS_SELECTOR, '._aagv img').get_attribute('src')
-# save img
-urllib.request.urlretrieve(img, '1.jpg')
-
-# next button click
-next = driver.find_element(By.CSS_SELECTOR, 'button[type="button"]')
-driver.execute_script('arguments[0].click()', next)
-
-time.sleep(1)
-# img class x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3
-img = driver.find_element(By.CSS_SELECTOR, '._aagv img').get_attribute('src')
-# save img
-urllib.request.urlretrieve(img, '2.jpg')
-
-# next button click
-next = driver.find_element(By.CSS_SELECTOR, 'button[type="button"]')
-driver.execute_script('arguments[0].click()', next)
-
+for i in range(5):
+    time.sleep(1)
+    # img class > 
+    img = driver.find_elements(By.CSS_SELECTOR, '._aagu img')[i].get_attribute('src')
+    # save img
+    urllib.request.urlretrieve(img, f'{i}.jpg')
+    
+    time.sleep(1)
+    # next button click > _aaqg
+    next = driver.find_element(By.CSS_SELECTOR, '._aaqg button[type="button"]')
+    driver.execute_script('arguments[0].click()', next)
 
 # 종료 방지
 # input('enter')
