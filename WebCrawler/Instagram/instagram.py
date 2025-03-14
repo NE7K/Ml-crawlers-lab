@@ -51,9 +51,24 @@ driver.execute_script('arguments[0].click();', e)
 
 time.sleep(1)
 # img class x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3
-img = driver.find_elements(By.CSS_SELECTOR, '._aagv img')[1].get_attribute('src')
+img = driver.find_element(By.CSS_SELECTOR, '._aagv img').get_attribute('src')
 # save img
 urllib.request.urlretrieve(img, '1.jpg')
+
+# next button click
+next = driver.find_element(By.CSS_SELECTOR, 'button[type="button"]')
+driver.execute_script('arguments[0].click()', next)
+
+time.sleep(1)
+# img class x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3
+img = driver.find_element(By.CSS_SELECTOR, '._aagv img').get_attribute('src')
+# save img
+urllib.request.urlretrieve(img, '2.jpg')
+
+# next button click
+next = driver.find_element(By.CSS_SELECTOR, 'button[type="button"]')
+driver.execute_script('arguments[0].click()', next)
+
 
 # 종료 방지
 # input('enter')
