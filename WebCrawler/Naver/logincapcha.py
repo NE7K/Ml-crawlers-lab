@@ -45,4 +45,10 @@ time.sleep(1)
 
 pw.send_keys(Keys.ENTER)
 
+# blog post move
+driver.get('https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0')
+
+driver.get('https://blog.naver.com/sjjang16?Redirect=Write&')
+
+
 input('enter')
