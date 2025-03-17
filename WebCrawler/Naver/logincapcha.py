@@ -57,11 +57,30 @@ driver.implicitly_wait(10)
 driver.get(f'https://blog.naver.com/{os.getenv("id")}?Redirect=Write&')
 
 # post context part
-time.sleep(5)
+driver.implicitly_wait(10)
 
-# blog post step 3 > 버튼 찾아서 발행 누르셈 ㅇㅇ
-# btn class name publish_btn__m9KHH
-click = driver.find_element(By.CSS_SELECTOR, '.publish_btn__m9KHH button[type="button"]')
-driver.execute_script('argument[0].click()', click)
+pyperclip.copy(os.getenv('headContext'))
+
+# blog insert user context
+headerData = driver.find_element(By.CSS_SELECTOR, 'div[data-a11y-title="제목"] span')
+driver.send_keys(Keys.COMMAND, 'v')
+
+time.sleep(1.5)
+
+pyperclip.copy(os.getenv('mainContext'))
+
+headerData = driver.find_element(By.CSS_SELECTOR, 'div[data-a11y-title="본문"] span')
+driver.send_keys(Keys.COMMAND, 'v')
+
+
+# blog post step 4 > 버튼 찾아서 발행 누르셈 ㅇㅇ
+
+# class="header__Ceaap" 이거 헤더
+
+# try:
+#     # class="publish_btn__m9KHH" button[type="button"]
+#     click = driver.find_element(By.CSS_SELECTOR, '.publish_btn_area__KjA2i')
+# except Exception as e:
+#     print(e)
 
 input('enter')
