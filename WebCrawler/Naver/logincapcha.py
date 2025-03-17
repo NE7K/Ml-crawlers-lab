@@ -62,6 +62,26 @@ driver.get(f'https://blog.naver.com/{os.getenv("id")}?Redirect=Write&')
 # post context part
 time.sleep(2)
 
+# todo 이거 iframe 안에 있어서 안에서 접근해서 수정하고 빠져나와야 함
+
+# iframe이 있다면 먼저 전환
+iframe = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.TAG_NAME, "iframe"))
+)
+driver.switch_to.frame(iframe)
+
+# 요소 찾기 및 변경
+placeholder_span = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//span[contains(text(), '본문에 #을 이용하여 태그를 사용해보세요')]"))
+)
+driver.execute_script("arguments[0].textContent = '새로운 텍스트 입력됨!';", placeholder_span)
+
+# 다시 원래 페이지로 돌아오기
+driver.switch_to.default_content()
+
+# todo type="button" 찾아서 발행해야 함 ㅇㅇ
+
+
 
 
 input('enter')
