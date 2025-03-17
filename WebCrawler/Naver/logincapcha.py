@@ -25,7 +25,10 @@ optionTest.add_argument(r'--user-data-dir=/Users/azullcarrot/Library/Application
 driver = webdriver.Chrome(options=optionTest)
 driver.get('https://nid.naver.com/nidlogin.login?svctype=262144')
 
-time.sleep(2)
+# notebook 환경에서는 wifi로 인해서 느릴 수 있으니 3초 지연주는 것이 안정적
+# time.sleep(3)
+# 혹은 implicitly wait 사용해서 요소가 나올 때까지 10초 동안 기다리도록 설정
+driver.implicitly_wait(10)
 
 # id .env에서 훔쳐오기
 pyperclip.copy(os.getenv('id'))
@@ -45,10 +48,20 @@ time.sleep(1)
 
 pw.send_keys(Keys.ENTER)
 
-# blog post move
+# blog post move step 1
 driver.get('https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0')
 
+driver.implicitly_wait(10)
+
+# blog post move step 2
 driver.get(f'https://blog.naver.com/{os.getenv("id")}?Redirect=Write&')
 
+# post context part
+time.sleep(5)
+
+# blog post step 3 > 버튼 찾아서 발행 누르셈 ㅇㅇ
+# btn class name publish_btn__m9KHH
+click = driver.find_element(By.CSS_SELECTOR, '.publish_btn__m9KHH button[type="button"]')
+driver.execute_script('argument[0].click()', click)
 
 input('enter')
