@@ -4,7 +4,8 @@
 
 - Naver
 - Instargram
-- bit
+- Onebit
+- Capcha
 
 ### AI
 
