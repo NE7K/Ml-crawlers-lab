@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 amazon_header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36',
@@ -27,5 +28,9 @@ cookie = {
 
 r = requests.get('https://www.amazon.com/s?k=monitor&crid=1G9WSO12N4B55&sprefix=monit%2Caps%2C265&ref=nb_sb_noss_2', headers=amazon_header, cookies=cookie)
 
-print(r.content)
-print(r.status_code)
+
+soup = BeautifulSoup(r.content, 'html')
+print(soup)
+
+# print(r.content)
+# print(r.status_code)
