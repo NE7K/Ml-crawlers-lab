@@ -1,7 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
+# info : encode용으로 추가해봄 ㅅㄱ < 안되네 그냥 selenium으로 하는게 마음 편할듯
+# import urllib.parse
+
 amazon_header = {
+    # note user agent 필수
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36',
     'Accept-Language': 'en-US,en;q=0.9',
     'Accept-Encoding': 'gzip, deflate, br',
@@ -11,6 +15,7 @@ amazon_header = {
     'Connection': 'keep-alive'
 }
 
+# bug : 쿠키 암호화되어 있음
 cookie = {
     'aws-target-data':'%7B%22support%22%3A%221%22%7D',
     'aws-target-visitor-id':'1742274122917-718629.42_0',
@@ -26,11 +31,18 @@ cookie = {
     'csm-hit':'tb:s-GV223XGNKT8MSN6XEGKV|1742399608726&t:1742399609684&adb:adblk_no'
 }
 
-r = requests.get('https://www.amazon.com/s?k=monitor&crid=1G9WSO12N4B55&sprefix=monit%2Caps%2C265&ref=nb_sb_noss_2', headers=amazon_header, cookies=cookie)
+# note : session을 추가해야지 쿠키를 독립적으로 받아오지 않고 여러 번 요청 가능
+session = requests.Session()
+session.headers.update(amazon_header)
 
+# info : monitor 검색어
+url = 'https://www.amazon.com/s?k=monitor'
 
+r = session.get(url, headers=amazon_header, cookies=cookie)
+
+# note : 이쁘게
 soup = BeautifulSoup(r.content, 'html')
 print(soup)
 
-# print(r.content)
-# print(r.status_code)
+print(r.content)
+print(r.status_code)
