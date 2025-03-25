@@ -1,4 +1,4 @@
-# Python Study Repository
+# 🤖 Python Repository
 
 A collection of Python practice projects focused on web crawling, automation, data parsing, and more. This repository includes hands-on examples for scraping real websites, handling automation tasks, and learning core Python concepts through practical implementations.
 
