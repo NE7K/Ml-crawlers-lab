@@ -1,5 +1,7 @@
 # Python Study Repository
 
+A collection of Python practice projects focused on web crawling, automation, data parsing, and more. This repository includes hands-on examples for scraping real websites, handling automation tasks, and learning core Python concepts through practical implementations.
+
  - Amazon Web site parse system
 
  - Instargram User context parse system
@@ -22,7 +24,7 @@
 
  - Using Time import
 
-### 📂 Project Structure
+## 📂 Project Structure
 ```
 Python Study File
 │
@@ -66,3 +68,19 @@ Python Study File
 └── README.md
 
 ```
+
+## 🛠 Technologies Used
+Python 3.x
+
+Selenium, BeautifulSoup
+
+requests, dotenv
+
+threading
+
+PIL (Pillow)
+
+json, time, os
+
+## 📃 License
+This project is open for educational and personal use. No specific license is applied.
