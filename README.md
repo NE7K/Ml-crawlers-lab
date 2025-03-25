@@ -2,67 +2,69 @@
 
 A collection of Python practice projects focused on web crawling, automation, data parsing, and more. This repository includes hands-on examples for scraping real websites, handling automation tasks, and learning core Python concepts through practical implementations.
 
- - Amazon Web site parse system
+## 📌 Key Topics Covered
 
- - Instargram User context parse system
+- Amazon Website Parsing System
 
- - Naver Auto Login, Auto Insert context Post
+- Instagram User Data Parsing System
 
- - Naver Blog Context parse
+- Naver Auto Login & Auto Post System
 
- - CoinOne Site Crawler
+- Naver Blog Content Crawler
 
- - MultiTread
+- CoinOne Cryptocurrency Site Crawler
 
- - South Korea Stock Price parse
+- Multithreading Practice
 
- - Create Object
+- South Korea Stock Price Crawler
 
- - File Control
+- Object-Oriented Programming (Class Creation)
 
- - Image Resizing
+- File Input/Output Control
 
- - Using Time import
+- Image Resizing Automation
+
+- Time Module Usage for Process Handling
 
 ## 📂 Project Structure
 ```
 Python Study File
 │
 ├── Project/
-│   └── project.py
+│   └── project.py                # Main project file
 │
 ├── WebCrawler/
 │   ├── Amazon/
 │   │   ├── test.txt
-│   │   └── WebsiteCrawle.py
+│   │   └── WebsiteCrawle.py      # Amazon site crawler
 │   │
 │   ├── Instagram/
 │   │   ├── .env
 │   │   ├── .gitignore
-│   │   └── InstagramCrawle.py
+│   │   └── InstagramCrawle.py    # Instagram user data crawler
 │   │
 │   ├── Naver/
 │   │   ├── .env
 │   │   ├── .gitignore
-│   │   ├── BlogScrollCrawler.py
-│   │   └── logincaptcha.py
+│   │   ├── BlogScrollCrawler.py  # Naver blog scroll parser
+│   │   └── logincaptcha.py       # Naver login automation with CAPTCHA handling
 │   │
 │   └── Stock/
-│       ├── CoinCrawler.py
+│       ├── CoinCrawler.py        # CoinOne crypto crawler
 │       ├── CrawlerResult.txt
-│       ├── MultiThread.py
-│       ├── StockCrawler.py
+│       ├── MultiThread.py        # Multithreading example
+│       ├── StockCrawler.py       # Stock market crawler
 │       ├── test.json
 │       └── WebCrawler.py
 │
-├── testFile/
+├── testFile/                     # Test file directory
 │
-├── testFile2/
+├── testFile2/                    # Another test file directory
 │
-├── CreateObject.py
-├── FileControll.py
-├── ImageResizing.py
-├── TimeProcess.py
+├── CreateObject.py               # OOP class creation example
+├── FileControll.py               # File I/O control script
+├── ImageResizing.py              # Image resizing script
+├── TimeProcess.py                # Time module usage example
 │
 ├── .gitignore
 └── README.md
