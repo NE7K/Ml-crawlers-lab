@@ -11,7 +11,13 @@ import os
 # insert list
 filepath = os.getcwd()
 dir = os.listdir(filepath + '/Images')
-print(dir)
+# print(dir)
+
+# for list
+for i in dir:
+    img = Image.open('Images/' + i)
+    img.thumbnail((500, 2500))
+    img.save('Images/new_' + i)
 
 # 예를 들어서 파일 100만개를 전부다 리사이징하고 싶을 때
 # for i in range(100):
