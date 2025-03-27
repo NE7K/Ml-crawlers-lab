@@ -10,15 +10,15 @@ import os
 # .env file load
 load_dotenv()
  
-text = "메일 내용입니다"
+text = "SMTP Mail Auto Send Test"
 msg = MIMEText(text) 
  
-msg['Subject'] ="이것은 메일제목"
+msg['Subject'] ="zz"
 msg['From'] = os.getenv('id')
 msg['To'] = os.getenv('poset')
 print(msg.as_string())
  
-s = smtplib.SMTP( '네이버smtp주소' , 포트번호 ) 
+s = smtplib.SMTP( 'smtp.naver.com' , 587 ) 
 s.starttls() #TLS 보안 처리
 s.login( os.getenv('id') , os.getenv('pw') ) #네이버로그인
 s.sendmail( os.getenv('email'), os.getenv('post'), msg.as_string() )
