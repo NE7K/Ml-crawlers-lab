@@ -20,5 +20,5 @@ print(msg.as_string())
 s = smtplib.SMTP( 'smtp.naver.com' , 587 ) 
 s.starttls() #TLS 보안 처리
 s.login( os.getenv('id') , os.getenv('pw') ) # 네이버로그인
-s.sendmail( '발송자이메일', '수신자이메일', msg.as_string() )
+s.sendmail( os.getenv('email'), os.getenv('post'), msg.as_string() )
 s.close()
