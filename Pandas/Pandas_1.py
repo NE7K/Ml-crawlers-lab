@@ -17,4 +17,11 @@ test = pd.read_csv('credit.csv')
 # print(test['나이'].describe())
 
 # bug numeric_only=True 숫자 컬럼만 가져오기 < 이거 안쓰면 오류남
-print(test.groupby('성별').mean(numeric_only=True))
+# print(test.groupby('성별').mean(numeric_only=True))
+
+# info 2개 컬럼의 관계
+# context = test[['나이', '사용금액']].corr()
+
+context = test[ test['나이'] > 50 ]
+
+print(context)
