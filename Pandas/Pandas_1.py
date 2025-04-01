@@ -32,8 +32,13 @@ test = pd.read_csv('credit.csv')
 list = [15, 20, 25]
 list2 = [100, 60, 120]
 
-# 딕셔너리
+# Create Dictionary
+Dictionary = {
+    'clothes' : list,
+    'pants' : list2
+}
 
+# info change dataframe
+df = pd.DataFrame(Dictionary)
 
-
-# print(context)
+print(df)
