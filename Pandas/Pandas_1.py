@@ -22,6 +22,18 @@ test = pd.read_csv('credit.csv')
 # info 2개 컬럼의 관계
 # context = test[['나이', '사용금액']].corr()
 
-context = test[ test['나이'] > 50 ]
+# info 나이가 50인 데이터만 뽑기
+# context = test[ test['나이'] > 50 ]
 
-print(context)
+# info using query 2 select data using 'and' keyword, select word using "" or ''
+# context = test.query('나이 > 50 and 기혼 == "Married"')
+
+# note list data => data frame
+list = [15, 20, 25]
+list2 = [100, 60, 120]
+
+# 딕셔너리
+
+
+
+# print(context)
