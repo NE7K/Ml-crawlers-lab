@@ -11,3 +11,4 @@ print(Q1)
 
 # Question : 소득이 높을 수록 사용금액이 평균적으로 높은가?
 Q2 = df.groupby('소득').mean(numeric_only=True)
+print(Q2)
