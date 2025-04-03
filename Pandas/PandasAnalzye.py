@@ -10,5 +10,6 @@ Q1 = df.query(" 성별 == 'M' and 기혼 == 'Married' ").mean(numeric_only=True)
 print(Q1)
 
 # Question : 소득이 높을 수록 사용금액이 평균적으로 높은가?
+# info groupby는 그 칼럼에 관한 정보에 대한 통계를 낼 때에 사용함
 Q2 = df.groupby('소득').mean(numeric_only=True)
 print(Q2)
