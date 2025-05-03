@@ -28,4 +28,18 @@ def typeCategorie(a):
 # Question 상품목록에 따른 카테고리 부여
 df['카테고리'] = df['상품목록'].apply(typeCategorie)
 
-print(df)
+# info 복습 부분
+# print(df)
+
+
+# # info xlsx file open = read_excel, engine='openpyxl'
+# save = pd.read_excel('product.xlsx', engine='openpyxl')
+
+# # 새로운 컬럼 생성
+# # save['부가세포함'] = save['판매가'] * 1.1
+
+# # 부가세포함 apply 사용 함수
+# def test(x):
+#     return x * 1.1
+
+# save = save['판매가'].apply(test)
