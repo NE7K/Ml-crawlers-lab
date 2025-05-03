@@ -20,5 +20,13 @@ save = re.findall('단어', '나는 아무 말도하지 않을 것이다. 어떠
 re.sub('이걸 찾아서', '이렇게 바꿔주세요', '이 문장을')
 test = re.sub('\-', '.', '2025-01-01')
 
+# Question 만약에 문장에서 숫자를 제거하고 싶으면
+test = re.sub('\d', '', '이것은 문4장이3라2네')
+
 print(test)
 print(save)
+
+# Question Q1. 이메일형식이 맞는지 판단하는 정규식을 만들어보십시오. = @이 뒤에 .이 오는지 찾아보고 리스트로 저장 = 
+# 문자@문자.문자 - 정확히 문자인지 이어주는건? and
+Q1 = re.findall('\S+@\S+.\S+', 'abc@example.com')
+print(Q1)
