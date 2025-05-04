@@ -27,8 +27,8 @@ test = re.sub('\-', '.', '2025-01-01')
 # Question 만약에 문장에서 숫자를 제거하고 싶으면
 test = re.sub('\d', '', '이것은 문4장이3라2네')
 
-print(test)
-print(save)
+# print(test)
+# print(save)
 
 # Question Q1. 이메일형식이 맞는지 판단하는 정규식을 만들어보십시오. = @이 뒤에 .이 오는지 찾아보고 리스트로 저장 = 
 # 문자@문자.문자 - 정확히 문자인지 이어주는건? and
@@ -39,7 +39,7 @@ print(Q1)
 
 # 1. 표 출력
 test2 = pd.read_excel('product.xlsx', engine='openpyxl')
-print(test2)
+# print(test2)
 
 # 2. def - if - Mirror and Sofa > insert '가구', a는 상품목록의 
 def insert(a):
@@ -49,5 +49,19 @@ def insert(a):
     
 # apply => 함수에 넣었다가 빼주세요
 test2['카테고리'] = test2['상품목록'].apply(insert)
+
+# print(test2)
+
+# Question Q3. 상품목록에 글자가 없고 숫자만 있으면 그 칸은 '에러'라는 단어로 바꾸고 싶습니다. 
+
+# 1. def - if - 상품 목록에 숫자는 Error로 대체
+def tc_Error(a):
+    # only number = Error, a라는 문장에 숫자가 아닌 문자가 있으면 return a 아니면 error return
+    if re.search('\D', str(a)) :
+        return a
+    else :
+        return 'Error'
+    
+test2['상품목록'] = test2['상품목록'].apply(tc_Error)
 
 print(test2)
