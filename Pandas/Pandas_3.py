@@ -1,4 +1,8 @@
+# using regex
 import re
+
+# xlsx file open import
+import pandas as pd
 
 # 정규식 문자를 검사하는 식
 save = re.search('Regex', 'Regex here')
@@ -30,3 +34,20 @@ print(save)
 # 문자@문자.문자 - 정확히 문자인지 이어주는건? and
 Q1 = re.findall('\S+@\S+.\S+', 'abc@example.com')
 print(Q1)
+
+# Question Q2. 상품목록에 Mirror 또는 Sofa라는 영단어가 포함되어있으면 카테고리컬럼에 '가구'라고 기록하고 싶습니다. 
+
+# 1. 표 출력
+test2 = pd.read_excel('product.xlsx', engine='openpyxl')
+print(test2)
+
+# 2. def - if - Mirror and Sofa > insert '가구', a는 상품목록의 
+def insert(a):
+    # | > 또는 이라는 의미인듯
+    if re.search('Mirror|Sofa', str(a)) : 
+        return '가구'
+    
+# apply => 함수에 넣었다가 빼주세요
+test2['카테고리'] = test2['상품목록'].apply(insert)
+
+print(test2)
