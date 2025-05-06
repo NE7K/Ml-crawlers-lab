@@ -3,3 +3,4 @@ import matplotlib.pyplot as plt
 
 # [x], [y] 축 데이터
 plt.plot([1,2,3], [4,5,6])
+plt.show()
