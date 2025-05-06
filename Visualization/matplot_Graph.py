@@ -1,3 +1,5 @@
+import pandas as pd
+
 # 시계열 데이터 사용시 필요 import
 import matplotlib.pyplot as plt
 
