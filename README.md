@@ -87,7 +87,7 @@ Python-Study-Repository/
 │   ├── california_housing.csv               # Dataset for regression examples
 │   ├── income.txt                           # Example dataset (income)
 │   ├── matplot_Graph.py                     # Graph drawing using matplotlib
-│   ├── regression_analysis_1.py             # ✅ Basic linear regression analysis
+│   ├── regression_analysis_1.py             # Basic linear regression analysis
 │   ├── regression_analysis_2.py             # Multiple regression
 │   ├── regression_analysis_3.py             # Regression using scikit-learn
 │   ├── regression_analysis_4.py             # Comparison of regression metrics (R², MSE)
