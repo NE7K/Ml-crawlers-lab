@@ -11,7 +11,7 @@ api_key = os.getenv('key')
 # result = requests.GET인지POST인지('요청할URL', data=보낼데이터, headers=헤더스)
 result = requests.post(
     'https://api-free.deepl.com/v2/translate',
-    data={"text":["Hello, world!"],"target_lang":"DE"},
+    data={"text":["Hello, world!"],"target_lang":"KO"},
     headers={"Authorization": f"DeepL-Auth-Key {api_key}"})
 
 # POST /v2/translate HTTP/2
@@ -23,4 +23,5 @@ result = requests.post(
 
 # {"text":["Hello, world!"],"target_lang":"DE"}
 
-print(result.json())
+# dictionary data기 때문에 translations의 리스트 0의 text를 불러와야함
+print(result.json()['translations'][0]['text'])
