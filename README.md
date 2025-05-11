@@ -1,4 +1,4 @@
-## 🤖 Python Study Repository
+## 🤖 ml-crawlers-lab Repository
 A comprehensive collection of Python practice projects focused on web crawling, data automation, AI integration, data analysis, and visualization.
 This repository includes modular examples demonstrating real-world applications such as scraping popular websites, processing stock and financial data, integrating OpenAI, and analyzing datasets using pandas and matplotlib.
 
