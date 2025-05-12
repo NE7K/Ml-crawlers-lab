@@ -1,6 +1,6 @@
 from sklearn import metrics
 import tensorflow as tf
-
+import numpy as np
 import pandas as pd
 
 data = pd.read_csv('gpascore.csv')
@@ -14,15 +14,16 @@ data = data.dropna()
 result = data['admit'].values
 xdata = []
 
-# data get
+# data get, insert data
 for i, rows in data.iterrows():
-    print(rows)
+    xdata.append([ rows['gre'], rows['gpa'], rows['rank'] ])
+    # print(xdata)
 
 # 잠시 아래 실행 안 함
-exit()
+# exit()
 
-# 이거쓰면 자동으로 신경망 레이어 만들어줌 ㄷㄷ
-model = tf.keras.models.Squential([
+# 이거쓰면 자동으로 신경망 레이어 만들어줌
+model = tf.keras.models.Sequential([
     # hidden layer insert number은 2의 제곱으로 관습적으로 사용
     # info activation list sigmoid, tanh, relu, softmax
     tf.keras.layers.Dense(64, activation='tanh'),
@@ -37,4 +38,9 @@ model = tf.keras.models.Squential([
 # metrics : 모델을 딥러닝할때 어떤 요소를 평가할 것인지
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-model.fit(x, y, epochs=10)
+# accuracy : 예측한 값이 실제 데이터랑 얼마나 맞는지, 높을수록 좋음
+model.fit( np.array(xdata), np.array(result), epochs=1000)
+
+# prediction
+prediction = model.predict([[750, 3.70, 4], [400, 2.2, 1]])
+print(prediction)
