@@ -45,7 +45,7 @@ model = tf.keras.models.Sequential([
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # accuracy : 예측한 값이 실제 데이터랑 얼마나 맞는지, 높을수록 좋음
-model.fit( np.array(xdata), np.array(result), epochs=1000)
+model.fit( np.array(xdata), np.array(result), epochs=10000)
 
 # prediction
 prediction = model.predict([[750, 3.70, 4], [400, 2.2, 1]])
