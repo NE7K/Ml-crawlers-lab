@@ -29,7 +29,7 @@ print(model.coef_)
 
 # info 즉, y = 1.1x -118
 # x값 데이터를 넣었을 때 결과값
-test = model.predict([[156]])
+test = model.predict([[183]])
 print(test)
 
 # 최적의 선

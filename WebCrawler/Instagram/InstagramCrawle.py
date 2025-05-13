@@ -41,7 +41,7 @@ pressClick = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').send_
 # page move / game tag search
 # instagram.com/explore/tags/검색단어/ 이게 과거 주소인듯
 time.sleep(5)
-driver.get('https://www.instagram.com/explore/search/keyword/?q=%EC%97%B0%EC%95%A0')
+driver.get('https://www.instagram.com/explore/search/keyword/?q=레식')
 
 # 요소가 나올 때까지 기다려
 driver.implicitly_wait(10)
