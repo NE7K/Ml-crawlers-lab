@@ -3,7 +3,13 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 
+# get data frame
 data = pd.read_csv('gpascore.csv')
+
+# series data = data['gre']
+# print(data)
+
+# exit()
 
 # info null 값 찾기, fillna는 채우는거 .mean
 # print(data.isnull().sum())
@@ -27,7 +33,7 @@ model = tf.keras.models.Sequential([
     # hidden layer insert number은 2의 제곱으로 관습적으로 사용
     # info activation list sigmoid, tanh, relu, softmax
     tf.keras.layers.Dense(64, activation='tanh'),
-    tf.keras.layers.Dense(128, activation='tanh'),
+    tf.keras.layers.Dense(128, activation='relu'),
     # last node는 1개
     # info sigmoid 0~1
     tf.keras.layers.Dense(1, activation='sigmoid'),    
